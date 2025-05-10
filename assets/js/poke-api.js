@@ -33,3 +33,10 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
+
+function procurarPokemonNaUrlPeloNumerot(number){
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pokemonNumber = urlParams.get("pokemon");
+    })
+}

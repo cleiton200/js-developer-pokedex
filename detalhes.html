@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/detalhes.css">
+
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Pokedex</title>
+</head>
+
+<body>
+    <h1>Detalhes do Pokémon</h1>
+    <div class="pokemon-card">
+        <h2 id="poke-name"></h2>
+        <img id="poke-img" src="" width="150">
+        <p id="poke-type"></p>
+        <p id="poke-number"></p>
+    </div>
+    
+<!--     
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pokemonNumber = urlParams.get("pokemon");
+
+            if (pokemonNumber) {
+                // Buscando os dados da API
+                fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("poke-name").textContent = data.name.toUpperCase();
+                        document.getElementById("poke-img").src = data.sprites.front_default;
+                        document.getElementById("poke-number").textContent = `Número: #${data.id}`;
+                        document.getElementById("poke-type").textContent = "Tipo: " + data.types.map(type => type.type.name).join(", ");
+                    })
+                    .catch(error => console.error("Erro ao buscar Pokémon:", error));
+            }
+        });
+    </script> -->
+
+    <script src="/assets/js/pokemon-model.js"></script>
+    <script src="/assets/js/poke-api.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</body>
+
+</html>

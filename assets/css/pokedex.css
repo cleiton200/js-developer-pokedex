@@ -84,8 +84,13 @@
     margin: .5rem;
     padding: 1rem;
     border-radius: 1rem;
-   }
-   
+    cursor: pointer;
+} 
+
+.pokemon:hover {
+    background-color: rgba(151, 149, 149, 0.747) !important; /* Fundo branco semi-transparente */
+}
+
 .pokemon .number {
     color: #000;
     opacity: .3;

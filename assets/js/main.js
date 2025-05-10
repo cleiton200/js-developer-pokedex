@@ -48,3 +48,30 @@ loadMoreButton.addEventListener('click', () => {
 
 // Testes
 
+document.addEventListener("DOMContentLoaded", function () {
+    pokemonList.addEventListener("click", function (event) {
+        let listItem = event.target.closest("li.pokemon");
+        if (listItem) {
+            const pokemonNumber = listItem.querySelector(".number").textContent.replace("#", ""); // Pegando o número do Pokémon
+            window.location.href = `detalhes.html?pokemon=${pokemonNumber}`; // Redireciona para a página de detalhes
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pokemonNumber = urlParams.get("pokemon");
+
+    if (pokemonNumber) {
+        // Buscando os dados da API
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("poke-name").textContent = data.name.toUpperCase();
+                document.getElementById("poke-img").src = data.sprites.front_default;
+                document.getElementById("poke-number").textContent = `Número: #${data.id}`;
+                document.getElementById("poke-type").textContent = "Tipo: " + data.types.map(type => type.type.name).join(", ");
+            })
+            .catch(error => console.error("Erro ao buscar Pokémon:", error));
+    }
+});
